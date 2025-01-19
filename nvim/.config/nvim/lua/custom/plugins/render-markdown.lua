@@ -3,9 +3,7 @@ return {
 	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
 	-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
 	dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
-	---@module 'render-markdown'
-	---@type render.md.UserConfig
-	---
+
 	config = function()
 		-- Lackluster color palette
 		local colors = {
@@ -46,32 +44,16 @@ return {
 		-- Bullet points
 		vim.api.nvim_set_hl(0, "RenderMarkdownBullet", { fg = colors.special })
 		-- Paragraph text
-		vim.api.nvim_set_hl(0, "@text.inline.markdown", { fg = colors.black })
-		vim.api.nvim_set_hl(0, "@text.paragraph.markdown", { fg = colors.black })
-		vim.api.nvim_set_hl(0, "@paragraph.markdown", { fg = colors.black })
-		vim.api.nvim_set_hl(0, "@markup.raw.markdown", { fg = colors.black })
 		-- Set up code block backgrounds using plugin's highlight groups
-		vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "NONE" }) -- For code block background
-		vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { bg = "NONE" }) -- For inline code background
-		-- vim.api.nvim_set_hl(0, "RenderMarkdownCodeBlock", { fg = colors.special, bg = "NONE" })
-
-		-- General syntax highlighting for all languages
-		-- vim.api.nvim_set_hl(0, "@keyword", { fg = colors.error }) -- for keywords
-		-- vim.api.nvim_set_hl(0, "@string", { fg = colors.special }) -- for strings
-		-- vim.api.nvim_set_hl(0, "@number", { fg = colors.hint }) -- for numbers
-		-- vim.api.nvim_set_hl(0, "@function", { fg = colors.lack }) -- for functions
-		-- vim.api.nvim_set_hl(0, "@variable", { fg = colors.gray8 }) -- for variables
-		-- vim.api.nvim_set_hl(0, "@constant", { fg = colors.warn }) -- for constants
-		-- vim.api.nvim_set_hl(0, "@operator", { fg = colors.gray7 }) -- for operators
-		-- vim.api.nvim_set_hl(0, "@punctuation", { fg = colors.gray6 }) -- for punctuation
-		-- vim.api.nvim_set_hl(0, "@comment", { fg = colors.gray4 }) -- for comments
-		--
-		-- -- These should cover most syntax elements across different languages
-		-- vim.api.nvim_set_hl(0, "@type", { fg = colors.hint })
-		-- vim.api.nvim_set_hl(0, "@property", { fg = colors.lack })
-		-- vim.api.nvim_set_hl(0, "@parameter", { fg = colors.special })
+		vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = colors.gray2 }) -- For code block background
+		vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { bg = colors.gray2 }) -- For inline code background
+		vim.api.nvim_set_hl(0, "RenderMarkdownCodeBlock", { fg = colors.gray2, bg = colors.gray2 })
 
 		require("render-markdown").setup({
+			padding = {
+				-- Highlight to use when adding whitespace, should match background
+				highlight = "Normal",
+			},
 			-- Mimic org-indent-mode behavior by indenting everything under a heading based on the
 			-- level of the heading. Indenting starts from level 2 headings onward.
 			indent = {
@@ -80,7 +62,7 @@ return {
 				-- Additional modes to render indents
 				render_modes = false,
 				-- Amount of additional padding added for each heading level
-				per_level = 3,
+				per_level = 4,
 				-- Heading levels <= this value will not be indented
 				-- Use 0 to begin indenting from the very first level
 				skip_level = 0,
@@ -111,10 +93,10 @@ return {
 				style = "full",
 				-- language_pad = 2,
 				width = "block",
-				border = false,
-				left_pad = 6,
-				-- right_pad = 4,
-				min_width = 60,
+				border = "none",
+				left_pad = 0,
+				right_pad = 0,
+				min_width = 120,
 				-- highlight = "RenderMarkdownCode",
 				-- highlight_inline = "RenderMarkdownCodeInline",
 				-- highlight_language = "RenderMarkdownInlineHighlight",
