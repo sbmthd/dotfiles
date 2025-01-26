@@ -7,7 +7,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("noirbuddy").setup({
-			preset = "slate",
+			preset = "kiwi",
 			colors = {
 				background = "#1b1d1e",
 				-- black = "#000000",
@@ -51,15 +51,17 @@ return {
 		local background = Color.new("background", noirbuddy.background)
 		local diff_change = Color.new("diff_change", noirbuddy.diff_change)
 		local noir_2 = Color.new("noir_2", noirbuddy.noir_2)
+		local noir_3 = Color.new("noir_3", noirbuddy.noir_3)
 		local noir_4 = Color.new("noir_4", noirbuddy.noir_4)
 		local noir_5 = Color.new("noir_5", noirbuddy.noir_5)
 		local noir_6 = Color.new("noir_6", noirbuddy.noir_6)
 		local primary = Color.new("primary", noirbuddy.primary)
+		local yellow = Color.new("yellow", "#e6dc44")
 
 		-- Neovim
-		Group.new("NormalNC", background) -- inactive buffer
+		Group.new("NormalNC", noir_4, background) -- inactive buffer
 
-		Group.new("ministatuslinemodeinsert", background, diff_change)
+		Group.new("ministatuslinemodeinsert", background, yellow)
 
 		-- FZF Lua
 		Group.new("FzfLuaNormal", noir_4, background)
@@ -68,6 +70,7 @@ return {
 		-- Group.new("DiffviewDiffAdd",
 
 		-- Whichkey
+		Group.new("Whichkey", noir_2, background)
 		Group.new("WhichkeyTitle", noir_5, background)
 		Group.new("WhichkeyDesc", noir_5, background)
 		Group.new("WhichkeyGroup", noir_5, background)
