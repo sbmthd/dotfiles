@@ -7,7 +7,7 @@ return {
 	priority = 1000,
 	config = function()
 		require("noirbuddy").setup({
-			preset = "kiwi",
+			preset = "minimal",
 			colors = {
 				background = "#1b1d1e",
 				-- black = "#000000",
@@ -37,8 +37,8 @@ return {
 				-- noir_8 = "#323232",
 				-- noir_9 = "#212121",
 				-- none = "none",
-				-- primary = "#89a7b1",
-				-- secondary = "#566981",
+				primary = "#c8be46", -- "#89a7b1",
+				secondary = "#949494", -- #566981",
 				-- white = "#ffffff",
 			},
 		})
