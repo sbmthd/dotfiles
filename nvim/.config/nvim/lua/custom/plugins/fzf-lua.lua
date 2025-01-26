@@ -4,6 +4,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		vim.keymap.set("n", "<leader>sf", ":FzfLua files<CR>", { silent = true, desc = "[S]earch [F]iles" })
+		vim.keymap.set("n", "<leader>sh", ":FzfLua highlights<CR>", { silent = true, desc = "[S]earch [H]ighlights" })
 		vim.keymap.set("n", "<leader>sg", ":FzfLua live_grep_glob<CR>", { silent = true, desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>sr", ":FzfLua resume<CR>", { silent = true, desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>sk", ":FzfLua keymaps<CR>", { silent = true, desc = "[S]earch [K]eymaps" })
@@ -42,6 +43,15 @@ return {
 				split = "belowright new",
 			},
 			files = {
+				formatter = "path.filename_first",
+			},
+			buffers = {
+				formatter = "path.filename_first",
+			},
+			grep = {
+				formatter = "path.filename_first",
+			},
+			oldfiles = {
 				formatter = "path.filename_first",
 			},
 		})

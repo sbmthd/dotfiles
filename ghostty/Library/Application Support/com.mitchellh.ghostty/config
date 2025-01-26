@@ -1,10 +1,13 @@
 window-padding-x = 0,0
 window-padding-y = 0,0
 
+theme = Batman
+
 macos-option-as-alt = true
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = true
 
 mouse-hide-while-typing = true
 
-font-size=12
+font-family =
+font-size = 12
