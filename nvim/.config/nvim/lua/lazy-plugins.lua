@@ -1,5 +1,7 @@
 -- [[ Configure and install plugins ]]
 require("lazy").setup({
+	{ import = "custom.plugins" },
+
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	require("kickstart/plugins/gitsigns"),
@@ -17,8 +19,6 @@ require("lazy").setup({
 	require("kickstart/plugins/treesitter"),
 
 	require("kickstart.plugins.neo-tree"),
-
-	{ import = "custom.plugins" },
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the

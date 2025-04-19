@@ -23,6 +23,11 @@ vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
 
+-- Tabs & indentation
+vim.opt.tabstop = 4 -- Number of visual spaces per TAB
+vim.opt.shiftwidth = 4 -- Number of spaces for autoindent
+vim.opt.expandtab = true -- Use spaces instead of TABs
+
 -- Enable break indent
 vim.opt.breakindent = true
 
