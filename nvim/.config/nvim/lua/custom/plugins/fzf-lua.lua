@@ -27,12 +27,6 @@ return {
 		)
 		vim.keymap.set(
 			"n",
-			"<leader>gr",
-			":FzfLua lsp_references<CR>",
-			{ silent = true, desc = "[S]earch LSP [R]eferences" }
-		)
-		vim.keymap.set(
-			"n",
 			"<leader><leader>",
 			":FzfLua buffers<CR>",
 			{ silent = true, desc = "[ ] Search existing buffers" }
