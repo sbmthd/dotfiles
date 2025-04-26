@@ -81,6 +81,38 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 		vim.api.nvim_set_hl(0, "MsgArea", { bg = "#282c34" })
 	end,
 })
+
+-- Ensure all windows start with default highlighting
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.cmd("highlight NormalDim guibg=#212121 guifg=#aaaaaa gui=NONE")
+	end,
+})
+
+-- Set up highlighting for active windows
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+	callback = function()
+		vim.opt_local.winhighlight = "Normal:Normal,NormalNC:NormalDim"
+	end,
+})
+
+-- Set up highlighting for inactive windows
+vim.api.nvim_create_autocmd("WinLeave", {
+	callback = function()
+		vim.opt_local.winhighlight = "Normal:NormalDim,NormalNC:NormalDim"
+	end,
+})
+
+-- Create a dimmed version of your normal colorscheme
+vim.api.nvim_exec(
+	[[
+  if !hlexists('NormalDim')
+    highlight NormalDim guibg=#212121 guifg=#aaaaaa gui=NONE
+  endif
+]],
+	false
+)
+
 -- [[ Setting options ]]
 require("options")
 
