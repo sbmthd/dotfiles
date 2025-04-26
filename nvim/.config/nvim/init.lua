@@ -1,73 +1,3 @@
---[[
-
-=====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
-=====================================================================
-========                                    .-----.          ========
-========         .----------------------.   | === |          ========
-========         |.-""""""""""""""""""-.|   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
-========         ||                    ||   | === |          ========
-========         ||                    ||   |-----|          ========
-========         ||:Tutor              ||   |:::::|          ========
-========         |'-..................-'|   |____o|          ========
-========         `"")----------------(""`   ___________      ========
-========        /::::::::::|  |::::::::::\  \ no mouse \     ========
-========       /:::========|  |==hjkl==:::\  \ required \    ========
-========      '""""""""""""'  '""""""""""""'  '""""""""""'   ========
-========                                                     ========
-=====================================================================
-=====================================================================
-
-What is Kickstart?
-
-  Kickstart.nvim is *not* a distribution.
-
-  Kickstart.nvim is a starting point for your own configuration.
-    The goal is that you can read every line of code, top-to-bottom, understand
-    what your configuration is doing, and modify it to suit your needs.
-
-    Once you've done that, you can start exploring, configuring and tinkering to
-    make Neovim your own! That might mean leaving Kickstart just the way it is for a while
-    or immediately breaking it into modular pieces. It's up to you!
-
-    If you don't know anything about Lua, I recommend taking some time to read through
-    a guide. One possible example which will only take 10-15 minutes:
-      - https://learnxinyminutes.com/docs/lua/
-
-    After understanding a bit more about Lua, you can use `:help lua-guide` as a
-    reference for how Neovim integrates Lua.
-    - :help lua-guide
-    - (or HTML version): https://neovim.io/doc/user/lua-guide.html
-
-Kickstart Guide:
-
-  TODO: The very first thing you should do is to run the command `:Tutor` in Neovim.
-
-    If you don't know what this means, type the following:
-      - <escape key>
-      - :
-      - Tutor
-      - <enter key>
-
-    (If you already know the Neovim basics, you can skip this step.)
-
-  Once you've completed that, you can continue working through **AND READING** the rest
-  of the kickstart init.lua.
-
-  Next, run AND READ `:help`.
-    This will open up a help window with some basic information
-    about reading, navigating and searching the builtin help documentation.
-
-    This should be the first place you go to look when you're stuck or confused
-    with something. It's one of my favorite Neovim features.
-I hope you enjoy your Neovim journey,
-- TJ
-
-P.S. You can delete this when you're done too. It's your config now! :)
---]]
-
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -82,36 +12,39 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 	end,
 })
 
--- Ensure all windows start with default highlighting
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.cmd("highlight NormalDim guibg=#212121 guifg=#aaaaaa gui=NONE")
-	end,
+-- Define the dim highlight for normal text
+vim.api.nvim_set_hl(0, "NormalDim", {
+	bg = "#212121",
+	fg = "#aaaaaa",
+})
+
+-- Define dim highlight for line numbers
+vim.api.nvim_set_hl(0, "LineNrDim", {
+	bg = "#212121",
+	fg = "#313131", -- Dimmer color for line numbers
+})
+
+-- Define dim highlight for the sign column
+vim.api.nvim_set_hl(0, "SignColumnDim", {
+	bg = "#212121",
+	fg = "#aaaaaa",
 })
 
 -- Set up highlighting for active windows
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 	callback = function()
-		vim.opt_local.winhighlight = "Normal:Normal,NormalNC:NormalDim"
+		vim.opt_local.winhighlight =
+			"Normal:Normal,NormalNC:NormalDim,LineNr:LineNr,LineNrNC:LineNrDim,SignColumn:SignColumn,SignColumnNC:SignColumnDim"
 	end,
 })
 
 -- Set up highlighting for inactive windows
 vim.api.nvim_create_autocmd("WinLeave", {
 	callback = function()
-		vim.opt_local.winhighlight = "Normal:NormalDim,NormalNC:NormalDim"
+		vim.opt_local.winhighlight =
+			"Normal:NormalDim,NormalNC:NormalDim,LineNr:LineNrDim,LineNrNC:LineNrDim,SignColumn:SignColumnDim,SignColumnNC:SignColumnDim"
 	end,
 })
-
--- Create a dimmed version of your normal colorscheme
-vim.api.nvim_exec(
-	[[
-  if !hlexists('NormalDim')
-    highlight NormalDim guibg=#212121 guifg=#aaaaaa gui=NONE
-  endif
-]],
-	false
-)
 
 -- [[ Setting options ]]
 require("options")
