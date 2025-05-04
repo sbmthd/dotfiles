@@ -23,7 +23,7 @@ return {
             "n",
             "<leader>sd",
             ":FzfLua diagnostics_workspace<CR>",
-            { silent = true, desc = "[D]iagnostics" }
+            { silent = true, desc = "[S]earch [D]iagnostics" }
         )
         vim.keymap.set(
             "n",
