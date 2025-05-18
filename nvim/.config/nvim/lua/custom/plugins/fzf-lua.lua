@@ -10,6 +10,12 @@ return {
         vim.keymap.set("n", "<leader>sk", ":FzfLua keymaps<CR>", { silent = true, desc = "[S]earch [K]eymaps" })
         vim.keymap.set(
             "n",
+            "<leader>ss",
+            ":FzfLua lsp_document_symbols<CR>",
+            { silent = true, desc = "[S]earch LSP Document [S]ymbols" }
+        )
+        vim.keymap.set(
+            "n",
             "<leader>st",
             ":FzfLua awesome_colorschemes<CR>",
             { silent = true, desc = "[S]earch [T]hemes" }

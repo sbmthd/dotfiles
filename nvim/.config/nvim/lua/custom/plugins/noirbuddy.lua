@@ -38,7 +38,7 @@ return {
                 -- noir_9 = "#212121",
                 -- none = "none",
                 -- primary = "#c8be46", -- "#89a7b1",
-                primary = "#75C7F0",
+                primary = "#869782",
                 -- secondary = "#949494", -- #566981",
                 -- white = "#ffffff",
             },
