@@ -56,12 +56,15 @@ return {
         local noir_4 = Color.new("noir_4", noirbuddy.noir_4)
         local noir_5 = Color.new("noir_5", noirbuddy.noir_5)
         local noir_6 = Color.new("noir_6", noirbuddy.noir_6)
+        local lineNr = Color.new("lineNr", "#535353")
+        local gray6 = Color.new("gray6", noirbuddy.gray6)
         local primary = Color.new("primary", noirbuddy.primary)
         local yellow = Color.new("yellow", "#e6dc44")
 
         -- Neovim
         Group.new("NormalNC", noir_4, background) -- inactive buffer
-
+        Group.new("LineNr", lineNr, background)
+        Group.new("CursorLineNr", gray6, background)
         Group.new("ministatuslinemodeinsert", background, yellow)
 
         -- FZF Lua
