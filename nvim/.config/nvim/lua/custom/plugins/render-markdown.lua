@@ -92,10 +92,10 @@ return {
             code = {
                 style = "full",
                 -- language_pad = 2,
-                width = "block",
+                -- width = "block",
                 border = "none",
-                left_pad = 0,
-                right_pad = 0,
+                left_pad = 3,
+                right_pad = 3,
                 min_width = 120,
                 -- highlight = "RenderMarkdownCode",
                 -- highlight_inline = "RenderMarkdownCodeInline",
