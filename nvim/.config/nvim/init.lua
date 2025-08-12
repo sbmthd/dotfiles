@@ -21,7 +21,13 @@ vim.api.nvim_set_hl(0, "NormalDim", {
 -- Define dim highlight for line numbers
 vim.api.nvim_set_hl(0, "LineNrDim", {
     bg = "#212121",
-    fg = "#313131", -- Dimmer color for line numbers
+    fg = "#313131",
+})
+
+-- Define dim highlight for active cursor line
+vim.api.nvim_set_hl(0, "CursorLineNrDim", {
+    bg = "#212121",
+    fg = "#313131",
 })
 
 -- Define dim highlight for the sign column
@@ -42,7 +48,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 vim.api.nvim_create_autocmd("WinLeave", {
     callback = function()
         vim.opt_local.winhighlight =
-            "Normal:NormalDim,NormalNC:NormalDim,LineNr:LineNrDim,LineNrNC:LineNrDim,SignColumn:SignColumnDim,SignColumnNC:SignColumnDim"
+            "Normal:NormalDim,NormalNC:NormalDim,LineNr:LineNrDim,LineNrNC:LineNrDim,CursorLineNr:CursorLineNrDim,SignColumn:SignColumnDim,SignColumnNC:SignColumnDim"
     end,
 })
 
