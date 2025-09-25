@@ -52,24 +52,17 @@ return {
         require("render-markdown").setup({
             padding = {
                 -- Highlight to use when adding whitespace, should match background
-                highlight = "Normal",
+                -- highlight = "Normal",
             },
             -- Mimic org-indent-mode behavior by indenting everything under a heading based on the
             -- level of the heading. Indenting starts from level 2 headings onward.
             indent = {
-                -- Turn on / off org-indent-mode
                 enabled = true,
-                -- Additional modes to render indents
-                render_modes = false,
-                -- Amount of additional padding added for each heading level
+                -- render_modes = { "n" }, -- "i", "v", "c" }, -- or just { "n" }
                 per_level = 4,
-                -- Heading levels <= this value will not be indented
-                -- Use 0 to begin indenting from the very first level
-                skip_level = 0,
-                -- Do not indent heading titles, only the body
-                skip_heading = true,
             },
             heading = {
+                position = "inline",
                 backgrounds = {},
                 foregrounds = {
                     "RenderMarkdownH1",
@@ -79,9 +72,8 @@ return {
                     "RenderMarkdownH5",
                     "RenderMarkdownH6",
                 },
-                icons = { " ", " ", " ", " ", " ", " " },
+                icons = { "", "", "", "", "", "" },
             },
-            paragraph = {},
             bullet = {
                 icons = { "", "", "", "" },
             },
@@ -90,13 +82,13 @@ return {
                 checked = { icon = "✔ ", scope_highlight = "@markup.strikethrough" },
             },
             code = {
-                style = "full",
+                -- style = "full",
                 -- language_pad = 2,
                 -- width = "block",
                 border = "none",
-                left_pad = 3,
-                right_pad = 3,
-                min_width = 120,
+                -- left_pad = 4,
+                -- right_pad = 3,
+                -- min_width = 120,
                 -- highlight = "RenderMarkdownCode",
                 -- highlight_inline = "RenderMarkdownCodeInline",
                 -- highlight_language = "RenderMarkdownInlineHighlight",
