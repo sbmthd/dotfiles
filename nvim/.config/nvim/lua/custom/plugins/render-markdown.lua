@@ -7,6 +7,7 @@ return {
     config = function()
         -- Lackluster color palette
         local colors = {
+            background = "#1b1d1e",
             -- Grays
             gray1 = "#080808",
             gray2 = "#191919",
@@ -48,6 +49,9 @@ return {
         vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = colors.gray2 }) -- For code block background
         vim.api.nvim_set_hl(0, "RenderMarkdownCodeInline", { bg = colors.gray2 }) -- For inline code background
         vim.api.nvim_set_hl(0, "RenderMarkdownCodeBlock", { fg = colors.gray2, bg = colors.gray2 })
+
+        -- Hide the indent vertical lines by making them transparent/invisible
+        vim.api.nvim_set_hl(0, "RenderMarkdownIndent", { fg = colors.background })
 
         require("render-markdown").setup({
             padding = {
