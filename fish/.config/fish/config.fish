@@ -1,3 +1,6 @@
+# Set up Homebrew PATH first (macOS)
+set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
