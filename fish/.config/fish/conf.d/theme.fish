@@ -19,8 +19,12 @@ set -g fish_color_autosuggestion 9C9C9C
 set -g fish_color_user brgreen
 set -g fish_color_host normal
 set -g fish_color_cancel --reverse
-set -g fish_pager_color_prefix normal --bold --underline
-set -g fish_pager_color_progress brwhite --background=cyan
-set -g fish_pager_color_completion normal
-set -g fish_pager_color_description B3A06D
-set -g fish_pager_color_selected_background --background=brblack
+
+# Pager colors (completion menu)
+set -g fish_pager_color_progress brwhite --background=black
+set -g fish_pager_color_prefix cyan --bold --underline
+set -g fish_pager_color_completion F4F4F4
+set -g fish_pager_color_description 666A80
+set -g fish_pager_color_selected_background --background=white
+set -g fish_pager_color_selected_completion black --bold
+set -g fish_pager_color_selected_description black
