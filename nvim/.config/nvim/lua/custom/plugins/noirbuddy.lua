@@ -6,13 +6,29 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+        -- ==========================================
+        -- Theme Variants - just change active_theme
+        -- ==========================================
+        local themes = {
+            sage = "#869782", -- Current sage green
+            ocean = "#7aa2b3", -- Soft blue
+            amber = "#b39169", -- Warm amber
+            rose = "#b37a8b", -- Dusty rose
+            slate = "#8691a3", -- Blue-gray
+            olive = "#96a369", -- Yellow-green
+            plum = "#9b7aa3", -- Muted purple
+            copper = "#b38969", -- Copper/bronze
+        }
+
+        local active_theme = "sage" -- ← Change this to switch themes
+
         require("noirbuddy").setup({
             preset = "minimal",
             colors = {
                 background = "#1b1d1e",
                 diff_add = "#35F09D",
                 diff_delete = "#BCA5F0",
-                primary = "#869782",
+                primary = themes[active_theme],
             },
         })
 
