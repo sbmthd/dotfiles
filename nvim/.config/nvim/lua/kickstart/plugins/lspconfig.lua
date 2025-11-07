@@ -18,10 +18,12 @@ return {
             -- FzfLua LSP keymaps
             map("n", "gd", ":FzfLua lsp_definitions<CR>", "[G]oto [D]efinition")
             map("n", "gr", ":FzfLua lsp_references<CR>", "[G]oto [R]eferences")
-            map("n", "gi", ":FzfLua lsp_implementations<CR>", "[G]oto [I]mplementations")
-            map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
-            map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
+            map("n", "gI", ":FzfLua lsp_implementations<CR>", "[G]oto [I]mplementation")
+            map("n", "gD", ":FzfLua lsp_declarations<CR>", "[G]oto [D]eclaration")
+            map("n", "gy", ":FzfLua lsp_typedefs<CR>", "[G]oto T[y]pe Definition")
             map("n", "K", vim.lsp.buf.hover, "Hover Doc")
+            map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+            map("n", "<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
         end
 
         -- Server-specific configs

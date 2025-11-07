@@ -18,9 +18,9 @@ return {
 
             vim.keymap.set("n", "<leader>p", function()
                 harpoon.ui:toggle_quick_menu(harpoon:list(), {
-                    title = " Harpoon deez nutz ",
+                    title = " Harpoon deez nuts ",
                 })
-            end, { desc = "Toggle Harpoon deez nutz" })
+            end, { desc = "Toggle Harpoon deez nuts" })
 
             -- Basic keymaps
             vim.keymap.set("n", "<leader>a", function()

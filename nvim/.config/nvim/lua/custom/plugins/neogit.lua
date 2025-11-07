@@ -61,15 +61,6 @@ return {
             end,
         })
 
-        vim.cmd([[
-            highlight DiffviewDiffAdd guifg=NONE guibg=#37453a gui=NONE
-            highlight DiffviewDiffChange guifg=#999999 guibg=NONE gui=NONE
-            highlight DiffviewDiffDelete guifg=NONE guibg=#3C354D gui=NONE
-            highlight DiffviewDiffAddAsDelete guifg=NONE guibg=#3C354D gui=NONE
-            highlight DiffviewDiffLine guifg=NONE guibg=NONE gui=NONE
-            highlight DiffviewReference guifg=NONE guibg=NONE gui=NONE
-            highlight DiffviewDiffText guifg=NONE guibg=#2b2d2e gui=NONE
-        ]])
         -- Set diagonal lines for diff view
         vim.opt.fillchars:append({ diff = "╱" })
     end,
