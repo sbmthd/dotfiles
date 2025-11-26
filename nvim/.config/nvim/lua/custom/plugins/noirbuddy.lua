@@ -10,7 +10,7 @@ return {
         -- Theme Variants - just change active_theme
         -- ==========================================
         local themes = {
-            sage = "#869782", -- Current sage green
+            sage = "#869782", -- Sage green
             ocean = "#7aa2b3", -- Soft blue
             amber = "#b39169", -- Warm amber
             rose = "#b37a8b", -- Dusty rose
