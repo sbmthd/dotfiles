@@ -194,9 +194,9 @@ function M.setup(opts)
     -- WhichKey
     -- ==========================================
     -- Float window backgrounds (WhichKey uses these)
-    hl(0, "NormalFloat", { fg = colors.noir_3, bg = colors.noir_9 })
-    hl(0, "FloatBorder", { fg = colors.noir_6, bg = colors.noir_9 })
-    hl(0, "FloatTitle", { fg = colors.noir_2, bg = colors.noir_9 })
+    hl(0, "NormalFloat", { fg = colors.noir_3, bg = "#121212" })
+    hl(0, "FloatBorder", { fg = colors.noir_6, bg = "#121212" })
+    hl(0, "FloatTitle", { fg = colors.noir_2, bg = "#212121" })
 
     -- hl(0, "WhichKey", { fg = colors.primary })
     -- hl(0, "WhichKeyGroup", { fg = colors.primary })
