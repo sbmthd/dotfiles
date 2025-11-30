@@ -39,8 +39,17 @@ return {
         )
         -- calling `setup` is optional for customization
         require("fzf-lua").setup({
+            -- automatically generate an fzf colorscheme from current Neovim colorscheme
+            fzf_colors = true,
+
             winopts = {
                 split = "belowright new",
+                -- preview = {
+                -- winopts = {
+                -- number = true,
+                -- winhighlight = "LineNr:FzfLuaPreviewLineNr,SignColumn:FzfLuaPreviewLineNr",
+                -- },
+                -- },
             },
             files = {
                 formatter = "path.filename_first",

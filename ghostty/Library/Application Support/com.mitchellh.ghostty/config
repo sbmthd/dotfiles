@@ -1,7 +1,7 @@
 window-padding-x = 0,0
 window-padding-y = 0,0
 
-theme = Batman
+theme = Black Metal (Mayhem)
 
 macos-option-as-alt = true
 macos-titlebar-style = hidden
@@ -9,5 +9,8 @@ macos-non-native-fullscreen = true
 
 mouse-hide-while-typing = true
 
-font-family =
+font-family = JetBrains Mono
 font-size = 12
+
+cursor-color = e6dc44
+cursor-text = 121212

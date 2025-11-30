@@ -10,6 +10,8 @@ local themes = {
     olive = "#96a369",
     plum = "#9b7aa3",
     copper = "#b38969",
+    sea = "#5f8786",
+    honey = "#edcb6c",
 }
 
 function M.setup(opts)
@@ -18,7 +20,7 @@ function M.setup(opts)
 
     -- Core colors
     local colors = {
-        background = "#1b1d1e",
+        background = "#121212",
         primary = themes[theme],
 
         noir_0 = "#ffffff",
@@ -31,11 +33,14 @@ function M.setup(opts)
         noir_7 = "#535353",
         noir_8 = "#323232",
         noir_9 = "#212121",
+        noir_10 = "#181818",
+        black = "#000000",
 
         -- Additional
-        cursorLineNr = "#737373",
+        cursorLineNr = "#949494",
         lineNr = "#535353",
         yellow = "#e6dc44",
+        lilac = "#b39bc8",
 
         -- Diff colors
         diff_add = "#00ff77",
@@ -130,25 +135,35 @@ function M.setup(opts)
     -- ==========================================
     -- FZF Lua
     -- ==========================================
-    hl(0, "FzfLuaNormal", { fg = colors.noir_4, bg = colors.background })
-    hl(0, "FzfLuaBorder", { fg = colors.noir_6, bg = colors.background })
-    hl(0, "FzfLuaTitle", { fg = colors.primary, bg = colors.background })
-    hl(0, "FzfLuaPreviewTitle", { fg = colors.primary, bg = colors.background })
-    hl(0, "FzfLuaPreviewBorder", { fg = colors.noir_6, bg = colors.background })
-    hl(0, "FzfLuaPreviewNormal", { fg = colors.noir_3, bg = colors.background })
-    hl(0, "FzfLuaCursor", { fg = colors.background, bg = colors.primary })
-    hl(0, "FzfLuaSearch", { fg = colors.yellow, bg = colors.background })
-    hl(0, "FzfLuaScrollBorderEmpty", { fg = colors.noir_6, bg = colors.background })
-    hl(0, "FzfLuaScrollBorderFull", { fg = colors.primary, bg = colors.background })
-    hl(0, "FzfLuaHeaderBind", { fg = colors.primary, bg = colors.background })
-    hl(0, "FzfLuaHeaderText", { fg = colors.noir_5, bg = colors.background })
-    hl(0, "FzfLuaPathLineNr", { fg = colors.yellow, bg = colors.background })
-    hl(0, "FzfLuaPathColNr", { fg = colors.yellow, bg = colors.background })
-    hl(0, "FzfLuaBufName", { fg = colors.primary, bg = colors.background })
-    hl(0, "FzfLuaBufNr", { fg = colors.noir_5, bg = colors.background })
-    hl(0, "FzfLuaTabTitle", { fg = colors.noir_2, bg = colors.background })
-    hl(0, "FzfLuaTabMarker", { fg = colors.primary, bg = colors.background })
-
+    -- hl(0, "FzfLuaNormal", { fg = colors.noir_4, bg = colors.black })
+    -- hl(0, "FzfLuaBorder", { fg = colors.noir_6, bg = colors.black })
+    -- hl(0, "FzfLuaTitle", { fg = colors.primary, bg = colors.black })
+    -- hl(0, "FzfLuaPreviewTitle", { fg = colors.primary, bg = colors.black })
+    hl(0, "FzfLuaPreviewBorder", { fg = colors.noir_8, bg = colors.background })
+    -- hl(0, "FzfLuaPreviewNormal", { fg = colors.noir_3, bg = colors.black })
+    -- hl(0, "FzfLuaCursor", { fg = colors.background, bg = colors.primary })
+    -- hl(0, "FzfLuaSearch", { fg = colors.yellow, bg = colors.black })
+    -- hl(0, "FzfLuaScrollBorderEmpty", { fg = colors.noir_6, bg = colors.black })
+    -- hl(0, "FzfLuaScrollBorderFull", { fg = colors.primary, bg = colors.black })
+    -- hl(0, "FzfLuaHeaderBind", { fg = colors.primary, bg = colors.black })
+    -- hl(0, "FzfLuaHeaderText", { fg = colors.noir_5, bg = colors.black })
+    -- hl(0, "FzfLuaPathLineNr", { fg = colors.yellow, bg = colors.black })
+    -- hl(0, "FzfLuaPathColNr", { fg = colors.yellow, bg = colors.black })
+    -- hl(0, "FzfLuaBufName", { fg = colors.primary, bg = colors.black })
+    -- hl(0, "FzfLuaBufNr", { fg = colors.noir_5, bg = colors.black })
+    -- hl(0, "FzfLuaTabTitle", { fg = colors.noir_2, bg = colors.black })
+    -- hl(0, "FzfLuaTabMarker", { fg = colors.primary, bg = colors.black })
+    -- hl(0, "FzfLuaCursorLine", { fg = colors.cursorLineNr, bg = colors.black })
+    -- hl(0, "FzfLuaCursorLineNr", { fg = colors.cursorLineNr, bg = colors.black })
+    -- hl(0, "FzfLuaLineNr", { fg = colors.cursorLineNr, bg = colors.black })
+    -- hl(0, "FzfLuaPreviewLineNr", { fg = colors.lineNr, bg = colors.black })
+    -- hl(0, "FzfLuaSignColumn", { fg = colors.noir_4, bg = colors.black })
+    -- hl(0, "FzfLuaSignColumn", { fg = colors.noir_4, bg = colors.black })
+    -- hl(0, "FzfLuaFzfMatch", { fg = colors.noir_4, bg = colors.black })
+    -- hl(0, "FzfLuaDirPart", { fg = colors.noir_4, bg = colors.black })
+    -- hl(0, "FzfLuaFilePart", { fg = colors.noir_4, bg = colors.black })
+    -- hl(0, "FzfLuaFzfInfo", { fg = colors.noir_4, bg = colors.black })
+    --
     -- ==========================================
     -- Neogit
     -- ==========================================
@@ -190,22 +205,61 @@ function M.setup(opts)
     hl(0, "DiffviewEndOfBuffer", { fg = colors.noir_8, bg = colors.background })
     hl(0, "DiffviewCursorLine", { bg = colors.noir_9 })
 
-    -- ==========================================
-    -- WhichKey
-    -- ==========================================
-    -- Float window backgrounds (WhichKey uses these)
-    hl(0, "NormalFloat", { fg = colors.noir_3, bg = "#121212" })
-    hl(0, "FloatBorder", { fg = colors.noir_6, bg = "#121212" })
-    hl(0, "FloatTitle", { fg = colors.noir_2, bg = "#212121" })
+    -- Float window backgrounds
+    hl(0, "NormalFloat", { fg = colors.noir_3, bg = colors.black })
+    hl(0, "FloatBorder", { fg = colors.noir_8, bg = colors.black })
+    hl(0, "FloatTitle", { fg = colors.noir_7, bg = colors.black })
 
-    -- hl(0, "WhichKey", { fg = colors.primary })
-    -- hl(0, "WhichKeyGroup", { fg = colors.primary })
-    -- hl(0, "WhichKeyDesc", { fg = colors.noir_3 })
-    -- hl(0, "WhichKeySeperator", { fg = colors.noir_6 })
-    -- hl(0, "WhichKeySeparator", { fg = colors.noir_6 }) -- both spellings
-    -- hl(0, "WhichKeyFloat", { bg = colors.noir_7 })
-    -- hl(0, "WhichKeyValue", { fg = colors.noir_5 })
-    -- hl(0, "WhichKeyBorder", { fg = colors.noir_6, bg = colors.noir_7 })
+    -- ==========================================
+    -- Status Line (Inverted)
+    -- ==========================================
+    hl(0, "StatusLine", { fg = colors.noir_9, bg = colors.noir_6 }) -- Light bg, dark text
+    hl(0, "StatusLineNC", { fg = colors.noir_8, bg = colors.noir_6 }) -- Slightly dimmer
+
+    -- ==========================================
+    -- Command Line / Messages (Inverted)
+    -- ==========================================
+    hl(0, "MsgArea", { fg = colors.noir_9, bg = colors.noir_6 }) -- Match statusline
+    hl(0, "CmdLine", { fg = colors.noir_9, bg = colors.noir_6 })
+    hl(0, "CmdLinePrompt", { fg = colors.primary, bg = colors.noir_3 }) -- Primary accent
+
+    -- Mode messages
+    hl(0, "ModeMsg", { fg = colors.noir_9, bg = colors.noir_3, bold = true })
+    hl(0, "MoreMsg", { fg = colors.noir_9, bg = colors.noir_3 })
+
+    -- ==========================================
+    -- Mode Indicators (for statusline)
+    -- ==========================================
+    hl(0, "MiniStatuslineModeNormal", { fg = colors.noir_9, bg = colors.noir_3 })
+    hl(0, "MiniStatuslineModeInsert", { fg = colors.background, bg = colors.yellow })
+    hl(0, "MiniStatuslineModeVisual", { fg = colors.background, bg = colors.lilac })
+    hl(0, "MiniStatuslineModeReplace", { fg = colors.background, bg = colors.diff_delete })
+    hl(0, "MiniStatuslineModeCommand", { fg = colors.background, bg = colors.primary })
+    hl(0, "MiniStatuslineModeOther", { fg = colors.noir_9, bg = colors.noir_4 })
+
+    -- Corrected Mayhem colors
+    local mayhem_bg = "#000000" -- Nearly black background (color 0)
+    local mayhem_fg = "#e8e8e8" -- Light foreground (color 7/15)
+    local mayhem_cyan = "#5f8786" -- Cyan (color 1/9)
+    local mayhem_cream = "#ffffdf" -- Cream (color 2/10)
+    local mayhem_yellow = "#ffdf87" -- Yellow (color 3/11)
+    local mayhem_gray_dark = "#3f3f3f" -- Dark gray (color 4/12)
+    local mayhem_gray = "#626262" -- Medium gray (color 8)
+    local mayhem_gray_med = "#9e9e9e" -- Medium-light gray (color 5/13)
+    local mayhem_gray_light = "#bcbcbc" -- Light gray (color 6/14)
+
+    -- Update your statusline highlights with the darker background
+    hl(0, "StatusLine", { fg = mayhem_fg, bg = mayhem_bg })
+    hl(0, "StatusLineNC", { fg = mayhem_gray, bg = mayhem_bg })
+
+    -- Mode indicators
+    hl(0, "MiniStatuslineModeNormal", { fg = mayhem_fg, bg = mayhem_gray_dark })
+    hl(0, "MiniStatuslineModeInsert", { fg = mayhem_bg, bg = mayhem_yellow })
+    hl(0, "MiniStatuslineModeVisual", { fg = mayhem_bg, bg = mayhem_cyan })
+    hl(0, "MiniStatuslineModeCommand", { fg = mayhem_bg, bg = mayhem_cream })
+
+    -- Command line area
+    hl(0, "MsgArea", { fg = mayhem_fg, bg = mayhem_bg })
 end
 
 -- Quick theme switcher function
