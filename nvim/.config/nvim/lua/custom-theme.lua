@@ -148,6 +148,18 @@ function M.setup(opts)
     -- MsgArea customization
     hl(0, "MsgArea", { bg = "#282c34" })
 
+    -- Diffview
+    hl(0, "DiffviewDiffAdd", { fg = colors.diff_add, bg = colors.diff_add_bg })
+    hl(0, "DiffviewDiffDelete", { fg = colors.diff_delete, bg = colors.diff_delete_bg })
+    hl(0, "DiffviewDiffAddAsDelete", { fg = colors.diff_delete, bg = colors.diff_delete_bg })
+    hl(0, "DiffviewDiffText", { fg = colors.noir_0, bg = colors.diff_add_bg }) -- highlighted changes within lines
+
+    -- Standard Vim diff highlights (used by Diffview)
+    hl(0, "DiffAdd", { fg = colors.diff_add, bg = colors.diff_add_bg })
+    hl(0, "DiffDelete", { fg = colors.diff_delete, bg = colors.diff_delete_bg })
+    hl(0, "DiffChange", { fg = colors.noir_3, bg = colors.noir_9 })
+    hl(0, "DiffText", { fg = colors.noir_0, bg = colors.diff_add_bg })
+
     -- ==========================================
     -- FZF Lua
     -- ==========================================
