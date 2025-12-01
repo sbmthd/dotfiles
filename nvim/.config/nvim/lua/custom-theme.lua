@@ -43,10 +43,12 @@ function M.setup(opts)
         lilac = "#b39bc8",
 
         -- Diff colors
-        diff_add = "#00ff77",
-        diff_delete = "#ff0038",
+        diff_add = "#869782",
         diff_add_bg = "#1d2520",
-        diff_delete_bg = "#252029",
+        diff_delete = "#b37a7a",
+        diff_delete_bg = "#251d1d",
+        -- diff_delete = "#b38080", -- slightly warmer dusty red
+        -- diff_delete_bg = "#2a2020", -- dark warm red background
     }
 
     -- Clear and set basics
@@ -68,12 +70,26 @@ function M.setup(opts)
     hl(0, "LineNr", { fg = colors.lineNr, bg = colors.background })
     hl(0, "CursorLineNr", { fg = colors.cursorLineNr, bg = colors.background })
     hl(0, "Comment", { fg = colors.lineNr })
-    hl(0, "String", { fg = colors.primary })
-    hl(0, "Function", { fg = colors.noir_5 })
-    hl(0, "Keyword", { fg = colors.noir_5 })
-    hl(0, "Identifier", { fg = colors.noir_3 })
-    hl(0, "Type", { fg = colors.noir_2 })
-    hl(0, "Constant", { fg = colors.noir_3 })
+    -- hl(0, "String", { fg = colors.primary })
+    -- hl(0, "Function", { fg = colors.noir_5 })
+    -- hl(0, "Keyword", { fg = colors.noir_5 })
+    -- hl(0, "Identifier", { fg = colors.noir_3 })
+    -- hl(0, "Type", { fg = colors.noir_2 })
+    -- hl(0, "Constant", { fg = colors.noir_3 })
+    hl(0, "String", { fg = colors.primary }) -- Strings: your focal point
+    hl(0, "Function", { fg = colors.noir_2 }) -- Functions: bright, important actions
+    hl(0, "Type", { fg = colors.noir_2 }) -- Types: equally important structure
+    hl(0, "Keyword", { fg = colors.noir_5 }) -- Keywords: medium, structural
+    hl(0, "Constant", { fg = colors.noir_4 }) -- Constants: slightly emphasized
+    hl(0, "Identifier", { fg = colors.noir_6 }) -- Identifiers: dim, let them fade
+
+    hl(0, "Special", { fg = colors.noir_4 })
+    hl(0, "Operator", { fg = colors.noir_6 })
+    hl(0, "@property", { fg = colors.noir_4 })
+    hl(0, "@variable", { fg = colors.noir_5 })
+    hl(0, "@variable.builtin", { fg = colors.noir_3 })
+    hl(0, "@method", { fg = colors.noir_3 })
+    hl(0, "@function.call", { fg = colors.noir_3 })
 
     -- Editor UI essentials
     hl(0, "VertSplit", { fg = colors.noir_8, bg = colors.background }) -- legacy name
