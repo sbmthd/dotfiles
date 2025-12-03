@@ -70,26 +70,39 @@ function M.setup(opts)
     hl(0, "LineNr", { fg = colors.lineNr, bg = colors.background })
     hl(0, "CursorLineNr", { fg = colors.cursorLineNr, bg = colors.background })
     hl(0, "Comment", { fg = colors.lineNr })
-    -- hl(0, "String", { fg = colors.primary })
-    -- hl(0, "Function", { fg = colors.noir_5 })
-    -- hl(0, "Keyword", { fg = colors.noir_5 })
-    -- hl(0, "Identifier", { fg = colors.noir_3 })
-    -- hl(0, "Type", { fg = colors.noir_2 })
-    -- hl(0, "Constant", { fg = colors.noir_3 })
-    hl(0, "String", { fg = colors.primary }) -- Strings: your focal point
-    hl(0, "Function", { fg = colors.noir_2 }) -- Functions: bright, important actions
-    hl(0, "Type", { fg = colors.noir_2 }) -- Types: equally important structure
-    hl(0, "Keyword", { fg = colors.noir_5 }) -- Keywords: medium, structural
-    hl(0, "Constant", { fg = colors.noir_4 }) -- Constants: slightly emphasized
-    hl(0, "Identifier", { fg = colors.noir_6 }) -- Identifiers: dim, let them fade
+    --
+    -- Core syntax
+    hl(0, "@variable", { fg = colors.noir_3 })
+    hl(0, "@function", { fg = colors.noir_2 })
+    hl(0, "@function.call", { fg = colors.noir_2 })
+    hl(0, "@keyword", { fg = colors.noir_5 })
+    hl(0, "@keyword.return", { fg = colors.primary })
+    hl(0, "@keyword.function", { fg = colors.noir_5 })
+    hl(0, "@string", { fg = colors.primary })
+    hl(0, "@number", { fg = colors.noir_3 })
+    hl(0, "@boolean", { fg = colors.noir_3 })
+    hl(0, "@comment", { fg = colors.noir_7 })
+    hl(0, "@type", { fg = colors.primary })
+    hl(0, "@constant", { fg = colors.noir_2 })
+    hl(0, "@operator", { fg = colors.noir_5 })
 
-    hl(0, "Special", { fg = colors.noir_4 })
-    hl(0, "Operator", { fg = colors.noir_6 })
-    hl(0, "@property", { fg = colors.noir_4 })
-    hl(0, "@variable", { fg = colors.noir_5 })
-    hl(0, "@variable.builtin", { fg = colors.noir_3 })
-    hl(0, "@method", { fg = colors.noir_3 })
-    hl(0, "@function.call", { fg = colors.noir_3 })
+    -- Structure
+    hl(0, "@parameter", { fg = colors.noir_3 })
+    hl(0, "@property", { fg = colors.noir_2 })
+    hl(0, "@field", { fg = colors.noir_2 })
+    hl(0, "@punctuation.bracket", { fg = colors.noir_5 })
+    hl(0, "@punctuation.delimiter", { fg = colors.noir_5 })
+
+    -- Additional common groups
+    hl(0, "@tag", { fg = colors.noir_3 })
+    hl(0, "@tag.attribute", { fg = colors.noir_6 })
+    hl(0, "@constructor", { fg = colors.primary })
+    hl(0, "@namespace", { fg = colors.noir_2 })
+    hl(0, "@label", { fg = colors.primary })
+
+    -- UI groups
+    hl(0, "MatchParen", { fg = colors.primary, bold = true })
+    hl(0, "Directory", { fg = colors.primary })
 
     -- Editor UI essentials
     hl(0, "VertSplit", { fg = colors.noir_8, bg = colors.background }) -- legacy name
