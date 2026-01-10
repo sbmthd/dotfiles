@@ -16,12 +16,12 @@ require("keymaps")
 -- [[ Install `lazy.nvim` plugin manager ]]
 require("lazy-bootstrap")
 
+-- Load custom theme
+require("custom-theme").setup({ theme = "sage" })
+
 -- [[ Configure and install plugins ]]
 require("lazy-plugins")
 
--- Load custom theme (this now includes the dim highlights)
-require("custom-theme").setup({ theme = "sage" })
---
 -- Quick switch command
 vim.api.nvim_create_user_command("Theme", function(opts)
     require("custom-theme").switch(opts.args)

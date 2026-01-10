@@ -78,7 +78,7 @@ function M.setup(opts)
     hl(0, "@boolean", { fg = colors.surface_3 })
     hl(0, "@comment", { fg = colors.surface_8 })
     hl(0, "@type", { fg = colors.primary })
-    hl(0, "@constant", { fg = colors.surface_2 })
+    hl(0, "@constant", { fg = colors.surface_3 })
     hl(0, "@operator", { fg = colors.surface_5 })
 
     -- Structure
@@ -254,6 +254,44 @@ function M.setup(opts)
     hl(0, "MiniStatuslineFileinfo", { fg = colors.surface_6, bg = colors.black })
     hl(0, "MiniStatuslineFilename", { fg = colors.surface_6, bg = colors.black })
     hl(0, "MiniStatuslineInactive", { fg = colors.surface_6, bg = colors.surface_10 })
+
+    -- ==========================================
+    -- Lualine Theme Generation
+    -- ==========================================
+    local lualine_theme = {
+        normal = {
+            a = { fg = colors.surface_2, bg = colors.surface_9, gui = "bold" },
+            b = { fg = colors.lilac, bg = colors.black },
+            c = { fg = colors.surface_6, bg = colors.black },
+        },
+        insert = {
+            a = { fg = colors.black, bg = themes.sage, gui = "bold" },
+            b = { fg = colors.lilac, bg = colors.black },
+            c = { fg = colors.surface_6, bg = colors.black },
+        },
+        visual = {
+            a = { fg = colors.black, bg = colors.lilac, gui = "bold" },
+            b = { fg = colors.lilac, bg = colors.black },
+            c = { fg = colors.surface_6, bg = colors.black },
+        },
+        replace = {
+            a = { fg = colors.black, bg = colors.diff_delete, gui = "bold" },
+            b = { fg = colors.lilac, bg = colors.black },
+            c = { fg = colors.surface_6, bg = colors.black },
+        },
+        command = {
+            a = { fg = colors.black, bg = colors.surface_2, gui = "bold" },
+            b = { fg = colors.lilac, bg = colors.black },
+            c = { fg = colors.surface_6, bg = colors.black },
+        },
+        inactive = {
+            a = { fg = colors.surface_6, bg = colors.surface_10 },
+            b = { fg = colors.surface_6, bg = colors.surface_10 },
+            c = { fg = colors.surface_6, bg = colors.surface_10 },
+        },
+    }
+
+    package.loaded["lualine.themes.custom"] = lualine_theme
 end
 
 -- Quick theme switcher function
