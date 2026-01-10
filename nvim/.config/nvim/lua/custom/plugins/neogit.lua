@@ -8,12 +8,6 @@ return {
     config = function()
         vim.keymap.set(
             "n",
-            "<leader>g",
-            ":Neogit kind=replace<CR>",
-            { noremap = true, silent = true, desc = "Open Neogit" }
-        )
-        vim.keymap.set(
-            "n",
             "<leader>gs",
             ":Neogit kind=split<CR>",
             { noremap = true, silent = true, desc = "Open Neogit in split" }
