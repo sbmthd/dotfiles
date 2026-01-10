@@ -20,6 +20,12 @@ return {
             ":FzfLua awesome_colorschemes<CR>",
             { silent = true, desc = "[S]earch [T]hemes" }
         )
+        vim.keymap.set(
+            "n",
+            "<leader>sit",
+            ":FzfLua colorschemes<CR>",
+            { silent = true, desc = "[S]earch [I]nstalled [T]hemes" }
+        )
         vim.keymap.set("n", "<leader>so", function()
             require("fzf-lua").oldfiles({
                 cwd_only = true, -- This filters files to current working directory
