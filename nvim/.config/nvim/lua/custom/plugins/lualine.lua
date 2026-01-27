@@ -42,10 +42,21 @@ return {
                     },
                 },
                 lualine_x = {
-                    {
-                        "filetype",
-                        -- color = { bg = "#000000" },
-                    },
+                    function()
+                        local ok, pomo = pcall(require, "pomo")
+                        if not ok then
+                            return ""
+                        end
+
+                        local timer = pomo.get_first_to_finish()
+                        if timer == nil then
+                            return ""
+                        end
+
+                        return "󰄉 " .. tostring(timer)
+                    end,
+                    "filetype",
+                    -- color = { bg = "#000000" },
                 },
                 lualine_y = {
                     {
