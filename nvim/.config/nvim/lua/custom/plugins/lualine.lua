@@ -55,6 +55,8 @@ return {
 
                         return "󰄉 " .. tostring(timer)
                     end,
+                    require("triforce.lualine").streak,
+                    require("triforce.lualine").level,
                     "filetype",
                     -- color = { bg = "#000000" },
                 },
