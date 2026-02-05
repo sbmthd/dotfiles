@@ -10,6 +10,18 @@ return {
         -- Get the LSP capabilities from blink.cmp
         local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+        -- Configure diagnostic signs
+        vim.diagnostic.config({
+            signs = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = "󰅚",
+                    [vim.diagnostic.severity.WARN] = "󰀪",
+                    [vim.diagnostic.severity.INFO] = "󰋽",
+                    [vim.diagnostic.severity.HINT] = "󰌶",
+                },
+            },
+        })
+
         -- Define the on_attach function for keymaps
         local on_attach = function(client, bufnr)
             local map = function(mode, lhs, rhs, desc)

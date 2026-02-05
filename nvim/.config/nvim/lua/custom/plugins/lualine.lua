@@ -27,12 +27,12 @@ return {
                             -- modified = { fg = "#edcb6c" },
                             removed = { fg = "#b37a7a" },
                         },
-                        symbols = { added = "+", modified = "~", removed = "-" }, -- TODO: replace with nerd font icons
+                        -- symbols = { added = "+", modified = "~", removed = "-" }, -- TODO: replace with nerd font icons
                     },
                     {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },
-                        symbols = { error = " ", warn = " ", info = " ", hint = " " }, -- TODO: replace with nerd font icons
+                        -- symbols = { error = "󰅚 ", warn = "󰀪 ", info = "󰋽 ", hint = "󰌶 " }, -- TODO: replace with nerd font icons
                     },
                 },
                 lualine_c = {
