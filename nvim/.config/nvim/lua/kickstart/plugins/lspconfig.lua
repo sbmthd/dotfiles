@@ -2,7 +2,6 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
         { "williamboman/mason.nvim", config = true },
-        "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         { "j-hui/fidget.nvim", opts = {} },
     },
@@ -44,18 +43,18 @@ return {
                 settings = {
                     Lua = {
                         runtime = {
-                            version = "LuaJIT", -- Required for Neovim
+                            version = "LuaJIT",
                             path = vim.split(package.path, ";"),
                         },
                         diagnostics = {
-                            globals = { "vim" }, -- Allow `vim` without warning
+                            globals = { "vim" },
                         },
                         workspace = {
                             library = vim.api.nvim_get_runtime_file("", true),
-                            checkThirdParty = false, -- Disable popup about third party
+                            checkThirdParty = false,
                         },
                         completion = {
-                            callSnippet = "Replace", -- Enables param placeholders
+                            callSnippet = "Replace",
                         },
                         telemetry = {
                             enable = false,
@@ -63,11 +62,11 @@ return {
                     },
                 },
             },
-            volar = {
+            vue_ls = {
                 filetypes = { "typescript", "javascript", "vue" },
                 init_options = {
                     typescript = {
-                        tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
+                        tsdk = (vim.fs.root(0, "node_modules") or vim.fn.getcwd()) .. "/node_modules/typescript/lib",
                     },
                     vue = {
                         hybridMode = false,
@@ -76,19 +75,8 @@ return {
                 settings = {
                     typescript = {
                         suggest = {
-                            -- enabled = true,
                             paths = true,
                             autoImports = true,
-                            -- completeFunctionCalls = true,
-                            -- includeCompletionsForImportStatements = true,
-                            -- includeCompletionsWithClassMemberSnippets = true,
-                            -- includeAutomaticOptionalChainCompletions = true,
-                            -- includeCompletionsForModuleExports = true,
-                            -- includeCompletionsWithSnippetText = true,
-                            -- includeCompletionsWithInsertText = true,
-                            -- includePackageJsonAutoImports = "auto",
-                            -- includeCompletionsWithObjectLiteralMethodSnippets = true,
-                            -- generateReturnInDocTemplate = true,
                         },
                     },
                 },
@@ -101,26 +89,34 @@ return {
         -- Mason setup
         require("mason").setup()
         local ensure_installed = vim.tbl_keys(servers or {})
+
+        -- lspconfig name -> mason package name overrides
+        local mason_name_map = {
+            vue_ls = "vue-language-server",
+            lua_ls = "lua-language-server",
+            cssls = "css-lsp",
+            html = "html-lsp",
+        }
+        ensure_installed = vim.tbl_map(function(name)
+            return mason_name_map[name] or name
+        end, ensure_installed)
+
         vim.list_extend(ensure_installed, {
             "stylua",
         })
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
         -- Setup all LSP servers with shared capabilities and on_attach
-        local lspconfig = require("lspconfig")
         for server_name, server_opts in pairs(servers) do
-            -- Apply common options to all servers
-            local opts = {
-                capabilities = capabilities,
-                on_attach = on_attach,
-            }
-
-            -- Merge server-specific options
-            for k, v in pairs(server_opts) do
-                opts[k] = v
-            end
-
-            lspconfig[server_name].setup(opts)
+            vim.lsp.config(
+                server_name,
+                vim.tbl_deep_extend("force", {
+                    capabilities = capabilities,
+                    on_attach = on_attach,
+                }, server_opts)
+            )
         end
+
+        vim.lsp.enable(vim.tbl_keys(servers))
     end,
 }
