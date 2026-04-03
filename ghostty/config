@@ -15,3 +15,4 @@ font-size = 12
 cursor-color = e6dc44
 cursor-text = 121212
 
+custom-shader = shaders/cursor_warp.glsl
