@@ -35,6 +35,9 @@ return {
             map("n", "K", vim.lsp.buf.hover, "Hover Doc")
             map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action")
             map("n", "<leader>cr", vim.lsp.buf.rename, "[C]ode [R]ename")
+
+            -- inline css colour indicators
+            vim.lsp.document_color.enable(true, nil, { style = "virtual" })
         end
 
         -- Server-specific configs
