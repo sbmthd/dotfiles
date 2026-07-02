@@ -38,6 +38,11 @@ return {
 
             -- inline css colour indicators
             vim.lsp.document_color.enable(true, nil, { style = "virtual" })
+            --
+            -- Disable semantic tokens for vue_ls to prevent conflicts with treesitter
+            if client.name == "vue_ls" then
+                client.server_capabilities.semanticTokensProvider = nil
+            end
         end
 
         -- Server-specific configs
@@ -66,10 +71,11 @@ return {
                 },
             },
             vue_ls = {
-                filetypes = { "typescript", "javascript", "vue" },
+                filetypes = { "vue" },
                 init_options = {
                     typescript = {
-                        tsdk = (vim.fs.root(0, "node_modules") or vim.fn.getcwd()) .. "/node_modules/typescript/lib",
+                        -- tsdk = (vim.fs.root(0, "node_modules") or vim.fn.getcwd()) .. "/node_modules/typescript/lib",
+                        tsdk = vim.fn.trim(vim.fn.system("npm root -g")) .. "/typescript/lib",
                     },
                     vue = {
                         hybridMode = false,
@@ -87,6 +93,7 @@ return {
             intelephense = {},
             cssls = {},
             html = {},
+            vtsls = {},
         }
 
         -- Mason setup

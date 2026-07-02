@@ -17,7 +17,7 @@ return {
                 lualine_b = {
                     {
                         "branch",
-                        -- color = { fg = "#bababa" },
+                        color = { fg = "#bababa" },
                     },
                     {
                         "diff",
@@ -38,6 +38,7 @@ return {
                 lualine_c = {
                     {
                         "filename",
+                        path = 4,
                         -- color = { bg = "#000000" },
                     },
                 },
