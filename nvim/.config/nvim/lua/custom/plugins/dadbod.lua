@@ -16,4 +16,15 @@ return {
             vim.g.db_ui_save_location = vim.fn.stdpath("data") .. "/db_ui"
         end,
     },
+    {
+        "kristijanhusak/vim-dadbod-completion",
+        ft = { "sql", "mysql", "plsql" },
+        dependencies = { "tpope/vim-dadbod" },
+    },
+    {
+        "saghen/blink.compat",
+        version = "*",
+        lazy = true,
+        opts = {},
+    },
 }

@@ -76,6 +76,17 @@ return {
         -- elsewhere in your config, without redefining it, due to `opts_extend`
         sources = {
             default = { "lsp", "path", "snippets", "buffer" },
+            per_filetype = {
+                sql = { "dadbod", "buffer", "snippets" },
+                mysql = { "dadbod", "buffer", "snippets" },
+                plsql = { "dadbod", "buffer", "snippets" },
+            },
+            providers = {
+                dadbod = {
+                    name = "dadbod",
+                    module = "blink.compat.source",
+                },
+            },
         },
 
         signature = {

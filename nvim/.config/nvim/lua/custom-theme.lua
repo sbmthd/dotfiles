@@ -162,12 +162,6 @@ function M.setup(opts)
     -- MsgArea customization
     hl(0, "MsgArea", { bg = "#282c34" })
 
-    -- Diffview
-    hl(0, "DiffviewDiffAdd", { fg = colors.diff_add, bg = colors.diff_add_bg })
-    hl(0, "DiffviewDiffDelete", { fg = colors.diff_delete, bg = colors.diff_delete_bg })
-    hl(0, "DiffviewDiffAddAsDelete", { fg = colors.diff_delete, bg = colors.diff_delete_bg })
-    hl(0, "DiffviewDiffText", { fg = colors.surface_0, bg = colors.diff_add_bg }) -- highlighted changes within lines
-
     -- Standard Vim diff highlights (used by Diffview)
     hl(0, "DiffAdd", { fg = colors.diff_add, bg = colors.diff_add_bg })
     hl(0, "DiffDelete", { fg = colors.diff_delete, bg = colors.diff_delete_bg })
