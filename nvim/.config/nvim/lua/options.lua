@@ -36,7 +36,7 @@ vim.opt.undofile = true
 
 -- Treesitter-based folding, all folds open by default
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevelstart = 99
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
