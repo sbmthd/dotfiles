@@ -10,9 +10,3 @@ font-size = 12
 cursor-color = #e6dc44
 cursor-text = #121212
 custom-shader = shaders/cursor_warp.glsl
-
-# xeno.nvim theme colors
-background = 0c0c0c
-foreground = c2c2c1
-cursor-color = 3e6e42
-# End xeno.nvim theme colors
