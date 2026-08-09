@@ -23,8 +23,10 @@ end
 return {
     "kevinhwang91/nvim-bqf",
 
-    "junegunn/fzf",
-    run = function()
-        vim.fn["fzf#install"]()
-    end,
+    {
+        "junegunn/fzf",
+        build = function()
+            vim.fn["fzf#install"]()
+        end,
+    },
 }

@@ -72,11 +72,20 @@ return {
             },
             vue_ls = {
                 filetypes = { "vue" },
+                -- Resolving tsdk requires a shell-out (`npm root -g`), which is slow.
+                -- Do it lazily in before_init (only when a vue buffer actually starts
+                -- the server) instead of unconditionally at every Neovim startup.
+                before_init = function(_, config)
+                    local local_tsdk = (vim.fs.root(0, "node_modules") or "") .. "/node_modules/typescript/lib"
+                    local tsdk = local_tsdk
+                    if vim.fn.isdirectory(local_tsdk) == 0 then
+                        tsdk = vim.fn.trim(vim.fn.system("npm root -g")) .. "/typescript/lib"
+                    end
+                    config.init_options = vim.tbl_deep_extend("force", config.init_options or {}, {
+                        typescript = { tsdk = tsdk },
+                    })
+                end,
                 init_options = {
-                    typescript = {
-                        -- tsdk = (vim.fs.root(0, "node_modules") or vim.fn.getcwd()) .. "/node_modules/typescript/lib",
-                        tsdk = vim.fn.trim(vim.fn.system("npm root -g")) .. "/typescript/lib",
-                    },
                     vue = {
                         hybridMode = false,
                     },

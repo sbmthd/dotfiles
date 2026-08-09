@@ -16,14 +16,14 @@ return {
                 },
             })
 
-            vim.keymap.set("n", "<leader>p", function()
+            vim.keymap.set("n", "<leader>hp", function()
                 harpoon.ui:toggle_quick_menu(harpoon:list(), {
                     title = " Harpoon deez ",
                 })
             end, { desc = "Toggle Harpoon" })
 
             -- Basic keymaps
-            vim.keymap.set("n", "<leader>a", function()
+            vim.keymap.set("n", "<leader>ha", function()
                 harpoon:list():add()
             end, { desc = "Add file to Harpoon" })
 

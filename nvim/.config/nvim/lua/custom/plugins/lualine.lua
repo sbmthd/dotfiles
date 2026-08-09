@@ -2,12 +2,21 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        require("custom-theme").setup({ theme = "sage" })
-        local lualine_theme = package.loaded["lualine.themes.custom"]
-
         require("lualine").setup({
             options = {
-                theme = lualine_theme,
+                -- Use a tailored lualine theme for whichever colorscheme is
+                -- actually active. "auto" is a poor fallback for "quiet":
+                -- it mixes fg/bg from unrelated highlight groups and quiet's
+                -- inverted StatusLine polarity makes that come out as
+                -- black-on-black (see lua/lualine/themes/quiet.lua).
+                theme = function()
+                    if vim.g.colors_name == "ambient-stealth" then
+                        return "ambient-stealth"
+                    elseif vim.g.colors_name == "quiet" then
+                        return "quiet"
+                    end
+                    return "auto"
+                end,
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
                 globalstatus = true,
@@ -15,17 +24,14 @@ return {
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = {
-                    {
-                        "branch",
-                        color = { fg = "#bababa" },
-                    },
+                    "branch",
                     {
                         "diff",
                         colored = true,
                         diff_color = {
-                            added = { fg = "#869782" },
-                            -- modified = { fg = "#edcb6c" },
-                            removed = { fg = "#b37a7a" },
+                            added = { fg = "#7ba87b" },
+                            modified = { fg = "#d7d7d7" },
+                            removed = { fg = "#b85670" },
                         },
                         -- symbols = { added = "+", modified = "~", removed = "-" }, -- TODO: replace with nerd font icons
                     },
@@ -39,7 +45,6 @@ return {
                     {
                         "filename",
                         path = 4,
-                        -- color = { bg = "#000000" },
                     },
                 },
                 lualine_x = {
@@ -48,25 +53,17 @@ return {
                         if not ok then
                             return ""
                         end
-
                         local timer = pomo.get_first_to_finish()
                         if timer == nil then
                             return ""
                         end
-
                         return "󰄉 " .. tostring(timer)
                     end,
                     require("triforce.lualine").streak,
                     require("triforce.lualine").level,
                     "filetype",
-                    -- color = { bg = "#000000" },
                 },
-                lualine_y = {
-                    {
-                        "progress",
-                        color = { fg = "#bababa" },
-                    },
-                },
+                lualine_y = { "progress" },
                 lualine_z = { "location" },
             },
             inactive_sections = {
@@ -80,5 +77,3 @@ return {
         })
     end,
 }
-
--- temp
