@@ -38,7 +38,7 @@ local colors = {
     green = is_light and "#7ba87b" or "#00af00", -- insert
     orange = is_light and "#c88a3f" or "#ffaf00", -- visual
     pink = is_light and "#b85670" or "#ff005f", -- replace
-    blue = is_light and "#5383A2" or "#00afff", -- command
+    blue = is_light and "#4F6AAF" or "#00afff", -- command
     black = "#000000", -- text on top of the accent colors above
 }
 return {
@@ -53,16 +53,16 @@ return {
         y = { fg = colors.muted_fg, bg = colors.statusline_nc_bg },
     },
     insert = {
-        a = { fg = colors.black, bg = colors.green, gui = "bold" },
+        a = { fg = colors.statusline_fg, bg = colors.green, gui = "bold" },
     },
     visual = {
-        a = { fg = colors.black, bg = colors.orange, gui = "bold" },
+        a = { fg = colors.statusline_fg, bg = colors.orange, gui = "bold" },
     },
     replace = {
-        a = { fg = colors.black, bg = colors.pink, gui = "bold" },
+        a = { fg = colors.statusline_fg, bg = colors.pink, gui = "bold" },
     },
     command = {
-        a = { fg = colors.black, bg = colors.blue, gui = "bold" },
+        a = { fg = colors.statusline_fg, bg = colors.blue, gui = "bold" },
     },
     -- Statusline of a window that isn't focused.
     inactive = {

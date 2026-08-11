@@ -73,8 +73,14 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- [[ Custom ]]
--- enable block cursor in insert mode
-vim.o.guicursor = ""
+-- Block cursor in every mode (not just normal), and route its color through
+-- the "Cursor" highlight group rather than Ghostty's own cursor color.
+-- `guicursor=""` (block-everywhere via the empty-string shortcut) looks the
+-- same but disables the "Cursor" hl group forwarding entirely — the TUI
+-- only sends the OSC 12 cursor-color escape when a mode entry references
+-- -Cursor/lCursor, so with it empty Ghostty's own cursor color always wins
+-- regardless of what `hi Cursor` is set to.
+vim.o.guicursor = "a:block-Cursor/lCursor"
 
 -- Disable line wrapping
 vim.wo.wrap = false
