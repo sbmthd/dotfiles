@@ -66,6 +66,8 @@ local function apply_quiet_overrides()
     set(0, "PreProc", { fg = "#505050" })
     set(0, "Special", { fg = "#505050" })
     set(0, "Cursor", { fg = "#eeeeee", bg = "#BEBFC2" })
+    set(0, "CursorLine", { bg = "#e2e2e2" })
+    set(0, "CursorLineNr", { bg = "#e2e2e2" })
 
     -- todo-comments.nvim keyword colors. Matched to quiet's own
     -- reverse-rendered accents (Error/IncSearch/Search/DiffAdd) where one
@@ -95,8 +97,9 @@ local function apply_quiet_overrides()
     -- not through these groups) looked any different.
     set(0, "NormalDim", { bg = "#d2d2d2", fg = "#8a8a8a" })
     set(0, "LineNrDim", { bg = "#d2d2d2", fg = "#b0b0b0" })
-    set(0, "CursorLineNrDim", { bg = "#d2d2d2", fg = "#b0b0b0" })
-    set(0, "SignColumnDim", { bg = "#d2d2d2", fg = "#8a8a8a" })
+    set(0, "CursorLineDim", { bg = "#d7d7d7" })
+    set(0, "CursorLineNrDim", { bg = "#d7d7d7", fg = "#b0b0b0" })
+    set(0, "SignColumnDim", { bg = "#d7d7d7", fg = "#8a8a8a" })
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
@@ -150,7 +153,8 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 vim.api.nvim_create_autocmd("WinLeave", {
     callback = function()
         vim.opt_local.winhighlight =
-            "Normal:NormalDim,NormalNC:NormalDim,LineNr:LineNrDim,LineNrNC:LineNrDim,CursorLineNr:CursorLineNrDim,SignColumn:SignColumnDim,SignColumnNC:SignColumnDim"
+            -- "Normal:NormalDim,NormalNC:NormalDim,LineNr:LineNrDim,LineNrNC:LineNrDim,CursorLine:CursorLineDim,CursorLineNr:CursorLineNrDim,SignColumn:SignColumnDim,SignColumnNC:SignColumnDim"
+            "CursorLine:CursorLineDim,CursorLineNr:CursorLineNrDim"
     end,
 })
 
