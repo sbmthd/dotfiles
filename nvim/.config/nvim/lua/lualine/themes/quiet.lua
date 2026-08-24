@@ -1,20 +1,10 @@
--- Tailored lualine theme for Neovim's builtin "quiet" colorscheme.
---
--- lualine's "auto" theme doesn't work here: quiet deliberately renders its
--- StatusLine group with inverted polarity relative to the background (e.g.
--- a light-on-dark statusline while the buffer itself is light-on-dark's
--- opposite), and "auto" mixes fg/bg pulled from unrelated highlight groups
--- across that inversion — e.g. Normal's text color ends up paired with
--- StatusLine's background, both landing on black in the light variant,
--- so lualine_c renders as unreadable black-on-black. Define the palette
--- explicitly instead, using quiet's actual rendered colors (i.e. with its
--- `gui=reverse` groups already resolved).
 local is_light = vim.o.background == "light"
+
 local colors = {
     -- Plain buffer text, from quiet's `Normal` group. Used for lualine_c,
     -- the largest/plainest section (e.g. filename).
     fg = is_light and "#000000" or "#dadada",
-    bg = is_light and "#c2c2c2" or "#000000",
+    bg = is_light and "#e2e2e2" or "#000000",
     -- The active statusline's own colors, from quiet's `StatusLine` group.
     -- Deliberately inverted polarity vs. `fg`/`bg` above (that's what made
     -- "auto" break) — used for lualine_a, the bold mode indicator.
@@ -35,17 +25,13 @@ local colors = {
     -- so unlike the pairs above they don't need a light/dark branch.
     -- Used for lualine_a's background per mode, so each mode is still
     -- visually distinguishable at a glance.
-    green = is_light and "#7ba87b" or "#00af00", -- insert
+    green = is_light and "#537A79" or "#00af00", -- insert
     orange = is_light and "#c88a3f" or "#ffaf00", -- visual
     pink = is_light and "#b85670" or "#ff005f", -- replace
     blue = is_light and "#4F6AAF" or "#00afff", -- command
     black = "#000000", -- text on top of the accent colors above
 }
 return {
-    -- normal/insert/visual/replace/command each style lualine_a (the mode
-    -- indicator, leftmost). Only "normal" also sets b/c/y (branch+diagnostics,
-    -- filename, progress) — lualine falls back to normal's sections for every
-    -- other mode when they're left unset, so we don't repeat them below.
     normal = {
         a = { fg = colors.statusline_fg, bg = colors.statusline_bg, gui = "bold" },
         b = { fg = colors.muted_fg, bg = colors.statusline_nc_bg },
@@ -56,10 +42,10 @@ return {
         a = { fg = colors.statusline_fg, bg = colors.green, gui = "bold" },
     },
     visual = {
-        a = { fg = colors.statusline_fg, bg = colors.orange, gui = "bold" },
+        a = { fg = colors.statusline_fg, bg = colors.pink, gui = "bold" },
     },
     replace = {
-        a = { fg = colors.statusline_fg, bg = colors.pink, gui = "bold" },
+        a = { fg = colors.statusline_fg, bg = colors.orange, gui = "bold" },
     },
     command = {
         a = { fg = colors.statusline_fg, bg = colors.blue, gui = "bold" },

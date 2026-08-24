@@ -7,6 +7,9 @@ return {
     { -- Adds git related signs to the gutter, as well as utilities for managing changes
         "lewis6991/gitsigns.nvim",
         opts = {
+            -- Only diff worktree vs. index (unstaged changes) — don't also
+            -- show a separate layer of signs for staged-vs-HEAD hunks.
+            signs_staged_enable = false,
             signs = {
                 add = { text = "+" },
                 change = { text = "~" },
