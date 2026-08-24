@@ -36,6 +36,13 @@ function M.apply()
     set(0, "GitSignsChangedelete", { fg = "#262522", bg = "#d7d7d7" })
     set(0, "GitSignsTopdelete", { fg = "#ffffff", bg = "#b85670" })
 
+    -- Fill the gutter diagnostic signs like the GitSigns pills above
+    -- (colored bg + light icon) instead of a bare colored icon on
+    -- SignColumn's bg, so warnings/errors read as one system with the
+    -- diff signs. bg is quiet's original DiagnosticError/Warn fg.
+    set(0, "DiagnosticSignError", { fg = "#ffffff", bg = "#ff0000" })
+    set(0, "DiagnosticSignWarn", { fg = "#ffffff", bg = "#ffa500" })
+
     -- Neogit derives its diff colors by sampling groups like Error/String
     -- via reverse-aware helpers (see neogit/lib/hl.lua). We never overrode
     -- Error, so it's still quiet.vim's original

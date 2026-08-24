@@ -61,7 +61,10 @@ return {
                     end,
                     require("triforce.lualine").streak,
                     require("triforce.lualine").level,
-                    "filetype",
+                    {
+                        "filetype",
+                        colored = false,
+                    },
                 },
                 lualine_y = { "progress" },
                 lualine_z = { "location" },

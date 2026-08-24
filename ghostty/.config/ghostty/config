@@ -10,3 +10,10 @@ font-size = 13
 cursor-color = #eecc6c
 cursor-text = #121212
 custom-shader = shaders/cursor_warp.glsl
+
+# Nerd font icons (e.g. the diagnostic sign pills in the quiet colorscheme)
+# render small/off-center using plain JetBrains Mono's fallback glyphs.
+# Scale them up instead of switching font-family to a patched Nerd Font
+# variant — that makes Ghostty treat the glyphs as native font output and
+# skips its own icon centering/scaling, making them render even smaller.
+adjust-icon-height = 30%
