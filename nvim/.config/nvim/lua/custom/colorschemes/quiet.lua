@@ -21,6 +21,12 @@ function M.apply()
     set(0, "WinSeparator", { fg = "#8f8e8b", bg = "#b6b5b2" })
     set(0, "VertSplit", { fg = "#8f8e8b", bg = "#b6b5b2" })
 
+    -- Match lualine's light bg/fg (lua/lualine/themes/quiet.lua) so the
+    -- message/cmdline window (vim._core.ui2, see init.lua) reads as part
+    -- of the same statusline-adjacent surface instead of an unstyled one.
+    set(0, "MsgArea", { fg = "#000000", bg = "#e2e2e2" })
+    set(0, "MsgSeparator", { fg = "#8f8e8b", bg = "#e2e2e2" })
+
     -- Same accent colors as lualine's git diff component (see
     -- lua/custom/plugins/lualine.lua's diff_color), so the gutter signs and
     -- statusline diff counts read as one system.

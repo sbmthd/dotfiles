@@ -7,6 +7,6 @@ macos-non-native-fullscreen = true
 mouse-hide-while-typing = true
 font-family = JetBrains Mono
 font-size = 13
-cursor-color = #e6dc44
+cursor-color = #eecc6c
 cursor-text = #121212
 custom-shader = shaders/cursor_warp.glsl
