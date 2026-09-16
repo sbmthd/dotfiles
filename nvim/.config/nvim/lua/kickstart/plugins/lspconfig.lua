@@ -9,14 +9,18 @@ return {
         -- Get the LSP capabilities from blink.cmp
         local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-        -- Configure diagnostic signs
+        -- Configure diagnostic signs. No icon glyphs: DiagnosticSignError/
+        -- Warn (see custom/colorschemes/quiet.lua) already fill the full
+        -- gutter width with a colored pill, so the severity is already
+        -- legible from color + position alone — an icon on top of that
+        -- was redundant.
         vim.diagnostic.config({
             signs = {
                 text = {
-                    [vim.diagnostic.severity.ERROR] = "󰅚",
-                    [vim.diagnostic.severity.WARN] = "󰀪",
-                    [vim.diagnostic.severity.INFO] = "󰋽",
-                    [vim.diagnostic.severity.HINT] = "󰌶",
+                    [vim.diagnostic.severity.ERROR] = " ",
+                    [vim.diagnostic.severity.WARN] = " ",
+                    [vim.diagnostic.severity.INFO] = " ",
+                    [vim.diagnostic.severity.HINT] = " ",
                 },
             },
         })

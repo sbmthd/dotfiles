@@ -10,13 +10,12 @@ return {
             -- Only diff worktree vs. index (unstaged changes) — don't also
             -- show a separate layer of signs for staged-vs-HEAD hunks.
             signs_staged_enable = false,
-            signs = {
-                add = { text = "+" },
-                change = { text = "~" },
-                delete = { text = "_" },
-                topdelete = { text = "‾" },
-                changedelete = { text = "~" },
-            },
+            -- Deliberately no `signs` override: gitsigns' own defaults
+            -- (┃ add/change, ▁/▔ delete) are solid vertical bars, not
+            -- single characters — the sign column is always a fixed
+            -- 2-cell slot with no alignment option, so a bar fills it
+            -- edge-to-edge instead of sitting hard-left the way the old
+            -- +/~/_/‾ glyphs did.
             on_attach = function(bufnr)
                 local gitsigns = require("gitsigns")
 

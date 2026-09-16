@@ -15,6 +15,17 @@ vim.opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
 
+-- Don't show "recording @a" in the command line either — lualine has its
+-- own recording indicator (see custom/plugins/lualine.lua), and the two
+-- were duplicating the same signal.
+vim.opt.shortmess:append("q")
+
+-- Don't echo partial commands in the command line (the "q" that flashes
+-- while waiting for the register letter, visual-selection size, etc.).
+-- lualine's macro-recording and selection-count components cover the
+-- cases that mattered; the rest was just flicker.
+vim.opt.showcmd = false
+
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
