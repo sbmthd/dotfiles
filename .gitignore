@@ -1,5 +1,15 @@
 fish/.config/fish/fish_variables
 
+# fisher generates these from fish_plugins (the actual source of truth) via
+# `fisher update` - committing the generated files too meant a fresh `stow
+# fish` pre-created them as symlinks before fisher ever ran, so fisher's own
+# self-install saw its target files already occupied and refused, corrupting
+# fish_plugins mid-failure. Same reasoning as tmux's plugins/ below: track the
+# manifest, not the plugin manager's output.
+fish/.config/fish/functions/
+fish/.config/fish/completions/
+fish/.config/fish/conf.d/
+
 # TPM clones each plugin as its own git repo. Committing them would create
 # broken gitlink entries - a fresh clone gets empty directories - and they are
 # reproducible from the @plugin lines in tmux.conf via `prefix + I`.
