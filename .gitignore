@@ -12,3 +12,5 @@ tmux/.config/tmux/plugins/
 # that in the first place.
 herdr/.config/herdr/*
 !herdr/.config/herdr/config.toml
+!herdr/.config/herdr/plugins.txt
+!herdr/.config/herdr/install.sh
