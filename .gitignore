@@ -1,1 +1,9 @@
 fish/.config/fish/fish_variables
+
+# herdr writes runtime state beside its config (sockets, logs, session and
+# plugin state). Only config.toml belongs in here. These patterns are a safety
+# net in case `stow herdr` ever folds the whole directory on a machine where
+# ~/.config/herdr does not exist yet - use `stow --no-folding herdr` to avoid
+# that in the first place.
+herdr/.config/herdr/*
+!herdr/.config/herdr/config.toml
