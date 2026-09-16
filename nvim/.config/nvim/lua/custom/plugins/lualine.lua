@@ -14,6 +14,12 @@ return {
                         return "ambient-stealth"
                     elseif vim.g.colors_name == "quiet" then
                         return "quiet"
+                    elseif vim.g.colors_name == "zenburn.nvim" then
+                        -- zenburn.nvim registers its own lualine theme under
+                        -- this name (see its README) - "auto" mis-derives a
+                        -- lime-green section background from an unrelated
+                        -- highlight group.
+                        return "zenburn"
                     end
                     return "auto"
                 end,

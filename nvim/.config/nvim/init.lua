@@ -7,7 +7,7 @@ require("options")
 require("keymaps")
 require("lazy-bootstrap")
 require("lazy-plugins")
-require("custom.colorschemes.quiet").setup()
+-- require("custom.colorschemes.quiet").setup() -- swapped for zenburn.nvim, see custom/plugins/zenburn.lua
 
 -- Set up window dimming autocmds (after theme loads)
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {

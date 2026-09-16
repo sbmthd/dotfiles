@@ -8,15 +8,15 @@ name = "terminal"
 
 auto_switch = false
 [theme.custom]
-# The active tab is drawn as panel_bg text on an accent background, so panel_bg
-# has to be dark for it to read - same colors as status-left's "#[fg=black,bg=blue]"
-panel_bg = "black"
+# Flat equivalent of a 12% white scrim over Zenburn's background (#3f3f3f),
+# Material-style, instead of an accent hue - keeps whatever text color already
+# reads fine on the plain background reading fine here too.
+active_row_bg = "#565656"
 
-# Sidebar's draggable resize separator ("│" at the sidebar's right edge, see
-# src/ui/sidebar.rs render_sidebar) is drawn in surface_dim. Matching it to
-# foot's actual background (~/.local/state/omarchy/current/theme/foot.ini)
-# makes the bar blend in instead of showing as a visible dark-gray line.
-surface_dim = "#101315"
+# Sidebar's draggable resize separator ("│" at the sidebar's right edge) is
+# drawn in surface_dim. Matching it to the terminal's actual background
+# (Zenburn's #3f3f3f) makes it blend in instead of showing as a visible line.
+surface_dim = "#3f3f3f"
 
 [terminal]
 # Matches -c "#{pane_current_path}" on every split, window, and session
@@ -81,11 +81,10 @@ next_workspace = ["prefix+shift+n", "alt+down"]
 [ui]
 accent = "blue"
 
-# Boxed panes: each pane gets its own full border with a gap between panes,
-# plus a frame around the outer edge of the terminal (instead of tmux-style
-# single-line shared dividers with no outer frame).
+# Gaps alone separate panes - no border lines, inner or outer.
 pane_gaps = true
-pane_outer_borders = true
+pane_outer_borders = false
+pane_borders = "off"
 
 # tmux had no scrollbar column beside its panes
 pane_scrollbars = false

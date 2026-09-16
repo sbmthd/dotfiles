@@ -1,6 +1,10 @@
 # Set up Homebrew PATH first (macOS)
 set -x PATH /opt/homebrew/bin /opt/homebrew/sbin $PATH
 
+# User-local binaries (e.g. herdr's official self-updating installer places
+# itself here on both macOS and Linux)
+set -x PATH $HOME/.local/bin $PATH
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
