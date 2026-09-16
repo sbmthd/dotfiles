@@ -2,13 +2,28 @@
 # Prints a nerd-font battery glyph sized to the current charge level,
 # followed by the percentage (mirrors the icon style used in tmux.conf).
 # Colours the segment when running low on battery (skipped while charging).
+# Portable across macOS (pmset) and Linux (/sys/class/power_supply) so the
+# same dotfiles work on both.
 #
 # Usage: battery.sh [low-color] [critical-color]
 low_color="${1:-#ffaa88}"
 critical_color="${2:-#D70000}"
 
-batt=$(pmset -g batt)
-pct=$(printf '%s\n' "$batt" | grep -Eo '[0-9]+%' | head -1 | tr -d '%')
+pct=""
+charging=""
+
+if command -v pmset >/dev/null 2>&1; then
+	batt=$(pmset -g batt)
+	pct=$(printf '%s\n' "$batt" | grep -Eo '[0-9]+%' | head -1 | tr -d '%')
+	printf '%s\n' "$batt" | grep -Eq '; *charging;' && charging=1
+else
+	for supply in /sys/class/power_supply/*/; do
+		[ "$(cat "${supply}type" 2>/dev/null)" = "Battery" ] || continue
+		pct=$(cat "${supply}capacity" 2>/dev/null)
+		[ "$(cat "${supply}status" 2>/dev/null)" = "Charging" ] && charging=1
+		break
+	done
+fi
 
 if [ -z "$pct" ]; then
 	exit 0
@@ -27,7 +42,7 @@ else
 fi
 
 color=""
-if ! printf '%s\n' "$batt" | grep -Eq '; *charging;'; then
+if [ -z "$charging" ]; then
 	if [ "$pct" -lt 15 ]; then
 		color="$critical_color"
 	elif [ "$pct" -lt 35 ]; then
