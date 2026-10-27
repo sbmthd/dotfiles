@@ -5,8 +5,7 @@ set -e
 # it has one). Safe to re-run: a package whose target already has a real,
 # non-symlinked file where a symlink should go is skipped with a clear
 # message instead of being clobbered - move the conflicting file aside
-# yourself (see herdr's own README on this, it hit exactly that case) and
-# re-run.
+# yourself and re-run.
 
 cd "$(dirname "$0")"
 
@@ -15,7 +14,7 @@ if ! command -v stow >/dev/null 2>&1; then
     exit 1
 fi
 
-packages=(fish ghostty herdr nvim tmux)
+packages=(claude fish ghostty nvim tmux workmux)
 
 echo "== Stowing packages =="
 for pkg in "${packages[@]}"; do

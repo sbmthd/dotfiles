@@ -1,5 +1,0 @@
-# herdr GitHub plugins, one owner/repo per line (# comments and blank lines
-# ignored). This is the source of truth for install.sh - add a line here
-# whenever `herdr plugin install` is run so a fresh machine picks it up too.
-
-bayoudhi/herdr-shell-progress
