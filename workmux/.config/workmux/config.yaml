@@ -1,0 +1,29 @@
+nerdfont: true
+window_prefix: ""
+status_format: false
+
+status_icons:
+  working: ""
+  waiting: ""
+  done: ""
+
+# Zenburn palette, matching the values Ghostty uses for the "Zenburn" terminal theme
+# (/Applications/Ghostty.app/Contents/Resources/ghostty/themes/Zenburn).
+theme:
+  scheme: mossfire
+  custom:
+    current_row_bg: "#333333"    # dashboard: current-worktree row bg, darker than base (#3f3f3f)
+    highlight_row_bg: "#333333"  # sidebar: selected-tile bg (was unset, defaulting to navy blue)
+    current_worktree_fg: "#f0dfaf"
+    dimmed: "#709080"
+    text: "#dcdccc"
+    border: "#5f5f5f"            # neutral grey for separators
+    help_border: "#4d4d4d"
+    help_muted: "#709080"
+    header: "#94bff3"
+    keycap: "#dc8cc3"
+    info: "#8cd0d3"
+    success: "#60b48a"
+    warning: "#e0cf9f"
+    danger: "#dca3a3"
+    accent: "#ec93d3"             # bright magenta; distinct from current_worktree_fg
