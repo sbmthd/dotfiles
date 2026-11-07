@@ -1,11 +1,22 @@
 nerdfont: true
-window_prefix: ""
+window_prefix: "wm-"
 status_format: false
+agent: claude
+base_branch: auto
+merge_strategy: rebase
+merge_keep: true
 
 status_icons:
   working: ""
   waiting: ""
   done: ""
+
+# Pinned because the built-in layout only starts the agent in repos with a CLAUDE.md.
+panes:
+  - command: <agent>
+    focus: true
+  - split: horizontal
+    percentage: 30
 
 # Zenburn palette, matching the values Ghostty uses for the "Zenburn" terminal theme
 # (/Applications/Ghostty.app/Contents/Resources/ghostty/themes/Zenburn).
@@ -26,4 +37,4 @@ theme:
     success: "#60b48a"
     warning: "#e0cf9f"
     danger: "#dca3a3"
-    accent: "#ec93d3"             # bright magenta; distinct from current_worktree_fg
+    accent: "#ec93d3"            # bright magenta; distinct from current_worktree_fg
